@@ -3,7 +3,7 @@ import { LinuxTab } from './linux-tab'
 import { MacosTab } from './macos-tab'
 import { WindowsTab } from './windows-tab'
 
-export interface Tab {
+interface TabShape {
     id: string
     label: string
     Icon: typeof Terminal
@@ -12,13 +12,31 @@ export interface Tab {
 }
 
 export interface TabProps {
-    tab: Omit<Tab, 'Content'>
+    tab: Tab
 }
 
 export const TABS = [
-    { id: 'linux', label: 'Linux', Icon: Terminal, accentClassName: 'text-amber-500', Content: LinuxTab },
-    { id: 'windows', label: 'Windows', Icon: Grid2x2, accentClassName: 'text-sky-500', Content: WindowsTab },
-    { id: 'macos', label: 'MacOS', Icon: Command, accentClassName: 'text-violet-500', Content: MacosTab },
-] as const satisfies Tab[]
+    {
+        id: 'linux',
+        label: 'Linux',
+        Icon: Terminal,
+        accentClassName: 'text-amber-500',
+        Content: LinuxTab,
+    },
+    {
+        id: 'windows',
+        label: 'Windows',
+        Icon: Grid2x2,
+        accentClassName: 'text-sky-500',
+        Content: WindowsTab,
+    },
+    {
+        id: 'macos',
+        label: 'MacOS',
+        Icon: Command,
+        accentClassName: 'text-violet-500',
+        Content: MacosTab,
+    },
+] as const satisfies TabShape[]
 
-export type TabId = (typeof TABS)[number]['id']
+export type Tab = (typeof TABS)[number]

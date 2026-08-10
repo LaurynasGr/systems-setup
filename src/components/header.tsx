@@ -1,6 +1,6 @@
 import { MonitorCog } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { TABS, type TabId } from '../tabs/constants'
+import { TABS, type Tab } from '../tabs/constants'
 
 export function Header({ activeTab, selectTab }: HeaderProps) {
     return (
@@ -21,16 +21,15 @@ export function Header({ activeTab, selectTab }: HeaderProps) {
                     role="tablist"
                     aria-label="Operating systems"
                 >
-                    {TABS.map(({ id, Icon, label, accentClassName }) => {
-                        const isActive = activeTab === id
+                    {TABS.map((tab) => {
+                        const isActive = activeTab.id === tab.id
                         return (
                             <button
-                                key={id}
+                                key={tab.id}
                                 type="button"
                                 role="tab"
                                 aria-selected={isActive}
-                                aria-controls={`panel-${id}`}
-                                onClick={() => selectTab(id)}
+                                onClick={() => selectTab(tab)}
                                 className={cn(
                                     'flex items-center gap-2 rounded-md px-4 py-1.5 text-sm font-medium transition-all',
                                     isActive
@@ -38,8 +37,8 @@ export function Header({ activeTab, selectTab }: HeaderProps) {
                                         : 'text-muted-foreground hover:text-foreground',
                                 )}
                             >
-                                <Icon className={cn('size-4', isActive && accentClassName)} />
-                                {label}
+                                <tab.Icon className={cn('size-4', isActive && tab.accentClassName)} />
+                                {tab.label}
                             </button>
                         )
                     })}
@@ -50,6 +49,6 @@ export function Header({ activeTab, selectTab }: HeaderProps) {
 }
 
 interface HeaderProps {
-    activeTab: TabId
-    selectTab: (id: TabId) => void
+    activeTab: Tab
+    selectTab: (tab: Tab) => void
 }
