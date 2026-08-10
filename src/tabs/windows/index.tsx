@@ -1,5 +1,5 @@
 import { EmptyState } from '@/components/empty-state'
-import type { TabProps } from './constants'
+import type { TabProps } from '../constants'
 
 export function WindowsTab({ tab }: TabProps) {
     return (
