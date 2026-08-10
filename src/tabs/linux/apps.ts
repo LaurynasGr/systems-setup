@@ -8,3 +8,5 @@ export const TABBY: AppsToInstall = {
     repoUrl: 'https://github.com/eugeny/tabby',
     picture: tabbyPicture,
 }
+
+export const linuxApps = [TABBY] as const

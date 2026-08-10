@@ -1,12 +1,12 @@
 import { AppsSection } from '@/components/apps-section'
 import { EmptyState } from '@/components/empty-state'
 import type { TabProps } from '../constants'
-import { TABBY } from './apps'
+import { linuxApps } from './apps'
 
 export function LinuxTab({ tab }: TabProps) {
     return (
         <>
-            <AppsSection apps={[TABBY]} />
+            <AppsSection apps={linuxApps} />
             <EmptyState
                 icon={tab.Icon}
                 accentClassName={tab.accentClassName}

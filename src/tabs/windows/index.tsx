@@ -1,12 +1,12 @@
 import { AppsSection } from '@/components/apps-section'
 import { EmptyState } from '@/components/empty-state'
 import type { TabProps } from '../constants'
-import { WINDOWS_TERMINAL } from './apps'
+import { windowsApps } from './apps'
 
 export function WindowsTab({ tab }: TabProps) {
     return (
         <>
-            <AppsSection apps={[WINDOWS_TERMINAL]} />
+            <AppsSection apps={windowsApps} />
             <EmptyState
                 icon={tab.Icon}
                 accentClassName={tab.accentClassName}

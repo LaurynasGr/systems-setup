@@ -1,12 +1,12 @@
 import { AppsSection } from '@/components/apps-section'
 import { EmptyState } from '@/components/empty-state'
 import type { TabProps } from '../constants'
-import { TABBY } from '../linux/apps'
+import { macosApps } from './apps'
 
 export function MacosTab({ tab }: TabProps) {
     return (
         <>
-            <AppsSection apps={[TABBY]} />
+            <AppsSection apps={macosApps} />
             <EmptyState
                 icon={tab.Icon}
                 accentClassName={tab.accentClassName}
