@@ -18,6 +18,9 @@ clean-files: ## Remove all generated files
 	rm -rf node_modules dist && \
 		bun i
 
+optimize-images: ## Convert assets/apps PNGs to optimized WebP in src/assets/apps
+	bun scripts/optimize-images.ts
+
 # Code quality
 lint: ## Run linters
 	bun run lint
