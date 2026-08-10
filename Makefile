@@ -14,3 +14,10 @@ build: ## Build application
 clean-files: ## Remove all generated files
 	rm -rf node_modules dist && \
 		bun i
+
+# Code quality
+lint: ## Run linters
+	bun run lint
+
+lint-fix: ## Fix linting issues
+	bun run lint:fix
