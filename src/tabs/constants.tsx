@@ -1,7 +1,7 @@
 import { Command, Grid2x2, Terminal } from 'lucide-react'
-import { LinuxTab } from './linux-tab'
-import { MacosTab } from './macos-tab'
-import { WindowsTab } from './windows-tab'
+import { LinuxTab } from './linux'
+import { MacosTab } from './macos'
+import { WindowsTab } from './windows'
 
 interface TabShape {
     id: string
@@ -13,6 +13,14 @@ interface TabShape {
 
 export interface TabProps {
     tab: Tab
+}
+
+export interface AppsToInstall {
+    name: string
+    description: string
+    url: string
+    repoUrl?: string
+    picture: string
 }
 
 export const TABS = [
