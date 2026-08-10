@@ -10,6 +10,9 @@ dev: ## Run development server
 build: ## Build application
 	bun run build
 
+start: ## Start application
+	bun run start
+
 # Misc tasks
 clean-files: ## Remove all generated files
 	rm -rf node_modules dist && \

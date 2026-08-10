@@ -22,5 +22,13 @@ const app = (
 )
 
 // https://bun.com/docs/bundler/hot-reloading#import-meta-hot-data
-import.meta.hot.data.root ??= createRoot(elem)
-import.meta.hot.data.root.render(app)
+// import.meta.hot.data persists across HMR updates in dev, but production
+// builds inline every `import.meta.hot.data` access as a fresh empty object —
+// so it must be read exactly once.
+if (import.meta.hot) {
+    const hotData = import.meta.hot.data
+    hotData.root ??= createRoot(elem)
+    hotData.root.render(app)
+} else {
+    createRoot(elem).render(app)
+}
