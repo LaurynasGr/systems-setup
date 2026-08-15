@@ -23,6 +23,11 @@ export interface AppsToInstall {
     picture: string
 }
 
+export interface ConfigSnippet {
+    code: string
+    description: string
+}
+
 export interface ToolToInstall {
     name: string
     description: string
