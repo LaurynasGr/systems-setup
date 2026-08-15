@@ -23,6 +23,13 @@ export interface AppsToInstall {
     picture: string
 }
 
+export interface ToolToInstall {
+    name: string
+    description: string
+    command: string
+    url?: string
+}
+
 export const TABS = [
     {
         id: 'linux',

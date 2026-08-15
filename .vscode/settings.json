@@ -11,7 +11,7 @@
     "[dockercompose]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
-    "cSpell.words": [],
+    "cSpell.words": ["coreutils"],
     "tailwindCSS.classFunctions": ["cn", "cva"],
     "tailwindCSS.experimental.classRegex": ["\\w*[cC]lassName\\s*[=:]\\s*\\{?\\s*[\"'`]([^\"'`]*)[\"'`]"]
 }
