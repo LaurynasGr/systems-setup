@@ -31,8 +31,11 @@ export interface ConfigSnippet {
 export interface ToolToInstall {
     name: string
     description: string
-    commands: readonly string[]
+    /** Plain command strings, or snippets with a per-step explanation. */
+    commands: readonly (string | ConfigSnippet)[]
     url?: string
+    /** Span the whole Tools grid row — for multi-step tools that would otherwise stretch their neighbours. */
+    fullWidth?: boolean
 }
 
 export const TABS = [

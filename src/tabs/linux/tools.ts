@@ -40,4 +40,50 @@ export const LLM_CODING_TOOLKIT: ToolToInstall = {
     url: 'https://github.com/LaurynasGr/llm-coding-toolkit',
 }
 
-export const linuxTools = [HOMEBREW, NVM, BUN, GH_CLI, LLM_CODING_TOOLKIT] as const
+export const GNUPG: ToolToInstall = {
+    name: 'GnuPG',
+    description:
+        'The GNU Privacy Guard — OpenPGP encryption and signing. Follow the steps below to install it, generate a signing key and make git sign every commit with it, so GitHub shows them as Verified.',
+    url: 'https://gnupg.org',
+    fullWidth: true,
+    commands: [
+        {
+            code: 'brew install gnupg',
+            description: 'Installs the gpg binary and gpg-agent.',
+        },
+        {
+            code: 'gpg --full-generate-key',
+            description:
+                'Starts the interactive key wizard. Pick "ECC (sign and encrypt)" with "Curve 25519" (or "RSA and RSA" with 4096 bits), choose an expiry (2y is a sensible default), then enter the name and the email address you use on GitHub. You will be asked for a passphrase — this protects the private key on disk.',
+        },
+        {
+            code: 'gpg --list-secret-keys --keyid-format=long',
+            description:
+                'Lists your keys. In the line starting with "sec", the ID is the part after the slash (e.g. sec ed25519/3AA5C34371567BD2 — the ID is 3AA5C34371567BD2). Use it in place of <KEY_ID> below.',
+        },
+        {
+            code: 'gpg --armor --export <KEY_ID>',
+            description:
+                'Prints the public key as an ASCII block. Copy everything from -----BEGIN PGP PUBLIC KEY BLOCK----- to -----END PGP PUBLIC KEY BLOCK----- and paste it into GitHub → Settings → SSH and GPG keys → New GPG key.',
+        },
+        {
+            code: 'git config --global user.signingkey <KEY_ID>',
+            description: 'Tells git which key to sign with.',
+        },
+        {
+            code: 'git config --global commit.gpgsign true',
+            description: 'Signs every commit automatically, so you never have to remember -S.',
+        },
+        {
+            code: 'git config --global tag.gpgsign true',
+            description: 'Same for annotated tags.',
+        },
+        {
+            code: "echo 'export GPG_TTY=$(tty)' >> ~/.zshrc && source ~/.zshrc",
+            description:
+                'Lets gpg-agent prompt for your passphrase in the current terminal. Without it, signing fails with "Inappropriate ioctl for device". Use ~/.bashrc instead if your shell is bash.',
+        },
+    ],
+}
+
+export const linuxTools = [HOMEBREW, NVM, BUN, GH_CLI, LLM_CODING_TOOLKIT, GNUPG] as const
