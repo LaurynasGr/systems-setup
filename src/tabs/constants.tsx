@@ -31,7 +31,7 @@ export interface ConfigSnippet {
 export interface ToolToInstall {
     name: string
     description: string
-    command: string
+    commands: readonly string[]
     url?: string
 }
 

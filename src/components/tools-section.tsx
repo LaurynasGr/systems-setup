@@ -16,7 +16,11 @@ export function ToolsSection({ tools }: ToolsSectionProps) {
                             {tool.url ? <ExternalLink href={tool.url}>{tool.name}</ExternalLink> : tool.name}
                         </h3>
                         <p className="text-sm text-muted-foreground">{tool.description}</p>
-                        <Code code={tool.command} className="mt-auto" />
+                        <div className="flex flex-col gap-2">
+                            {tool.commands.map((command) => (
+                                <Code key={command} code={command} />
+                            ))}
+                        </div>
                     </article>
                 ))}
             </div>
