@@ -24,4 +24,12 @@ export const BUN: ToolToInstall = {
     url: 'https://bun.com/docs/installation',
 }
 
-export const linuxTools = [HOMEBREW, NVM, BUN] as const
+export const GH_CLI: ToolToInstall = {
+    name: 'GitHub CLI',
+    description:
+        'GitHub on the command line — clone repos, open pull requests, review issues and run workflows without leaving the terminal.',
+    commands: ['brew install gh'],
+    url: 'https://cli.github.com',
+}
+
+export const linuxTools = [HOMEBREW, NVM, BUN, GH_CLI] as const
