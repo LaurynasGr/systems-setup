@@ -32,4 +32,12 @@ export const GH_CLI: ToolToInstall = {
     url: 'https://cli.github.com',
 }
 
-export const linuxTools = [HOMEBREW, NVM, BUN, GH_CLI] as const
+export const LLM_CODING_TOOLKIT: ToolToInstall = {
+    name: 'LLM Coding Toolkit',
+    description:
+        'CLI with helpful commands for coding with LLM agents — pull unresolved PR review comments into a clean markdown file, manage reusable prompt templates and GitHub tokens.',
+    commands: ['bun install -g llm-coding-toolkit'],
+    url: 'https://github.com/LaurynasGr/llm-coding-toolkit',
+}
+
+export const linuxTools = [HOMEBREW, NVM, BUN, GH_CLI, LLM_CODING_TOOLKIT] as const

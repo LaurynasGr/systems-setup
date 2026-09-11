@@ -1,5 +1,5 @@
 import type { ToolToInstall } from '../constants'
-import { BUN, GH_CLI, HOMEBREW, NVM } from '../linux/tools'
+import { BUN, GH_CLI, HOMEBREW, LLM_CODING_TOOLKIT, NVM } from '../linux/tools'
 
 export const GNU_COREUTILS: ToolToInstall = {
     name: 'GNU coreutils',
@@ -9,4 +9,4 @@ export const GNU_COREUTILS: ToolToInstall = {
     url: 'https://www.gnu.org/software/coreutils/',
 }
 
-export const macosTools = [HOMEBREW, GNU_COREUTILS, NVM, BUN, GH_CLI] as const
+export const macosTools = [HOMEBREW, GNU_COREUTILS, NVM, BUN, GH_CLI, LLM_CODING_TOOLKIT] as const
